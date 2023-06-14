@@ -4,6 +4,7 @@ import numpy as np
 import warnings
 
 # File dir
+## downloaded file from url = https://download.inep.gov.br/microdados/microdados_enem_2020.zip
 FILENAME = r"./enem_data/microdados_enem_2020/DADOS/MICRODADOS_ENEM_2020.csv"
 # Numpy configs
 warnings.filterwarnings("error")
