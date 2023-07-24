@@ -10,8 +10,8 @@ Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ib
 
 - Construção das tabelas 
 Para esse ETL estão utilizando dois banco de dados: RDS postgres e redshift. Dessa forma, antes de iniciar as dags é preciso criar as tabelas para receber os dados nesses dois banco de dados. 
- - Tabelas `ibge_data` e `people_info`: Estão nesse [script]() e são as tabelas utilizadas para salvar os dados tratados na instância RDS. 
- - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script]() e são as tabelas para salvar os dados tratados e filtrados no redshift.
+ - Tabelas `ibge_data` e `people_info`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_people_info.sql) e são as tabelas utilizadas para salvar os dados tratados na instância RDS. 
+ - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_filtered_people_info_mulheres_adultas.sql) e são as tabelas para salvar os dados tratados e filtrados no redshift.
 
 - *get_ibge_data.py* 
 
@@ -48,5 +48,5 @@ Para esse ETL estão utilizando dois banco de dados: RDS postgres e redshift. De
    - postgres_conn: Aqui é necessário definir `host`, `login`, `password` e `schema` do banco de dados postgres.
    - mongodb_conn: Aqui é necessário definir `host`, `login` e `password`. Como estamos utilizando o mongodb server também é necessário acrescentar `{"srv":true}` em `Extra`.
    - redshift_conn: Aqui é necessário definir `host`, `login`, `password` e `schema`.
-3. Lembre-se de rodar os scripts para definição das tabelas no redshift e postgres. Eles estão disponíveis na pasta [querys]()
+3. Lembre-se de rodar os scripts para definição das tabelas no redshift e postgres. Eles estão disponíveis na pasta [querys](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/tree/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys)
 4. Agora basta rodar as dags! A ordem delas aqui não importa já que ambas são adquiridas em fonte de dados diferentes.
