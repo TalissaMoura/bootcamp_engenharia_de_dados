@@ -9,9 +9,10 @@ Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ib
 # Etapas do ETL
 
 - Construção das tabelas 
-Para esse ETL estão utilizando dois banco de dados: RDS postgres e redshift. Dessa forma, antes de iniciar as dags é preciso criar as tabelas para receber os dados nesses dois banco de dados. 
- - Tabelas `ibge_data` e `people_info`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_people_info.sql) e são as tabelas utilizadas para salvar os dados tratados na instância RDS. 
- - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_filtered_people_info_mulheres_adultas.sql) e são as tabelas para salvar os dados tratados e filtrados no redshift.
+
+  Para esse ETL estão utilizando dois banco de dados: RDS postgres e redshift. Dessa forma, antes de iniciar as dags é preciso criar as tabelas para receber os dados nesses dois banco de dados. 
+   - Tabelas `ibge_data` e `people_info`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_people_info.sql) e são as tabelas utilizadas para salvar os dados tratados na instância RDS. 
+   - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_filtered_people_info_mulheres_adultas.sql) e são as tabelas para salvar os dados tratados e filtrados no redshift.
 
 - *get_ibge_data.py* 
 
