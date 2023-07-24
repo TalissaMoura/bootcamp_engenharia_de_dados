@@ -6,9 +6,9 @@ para a construção de um data warehouse para realização de consultas voltadas
 
 Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ibge_data.py` e `get_pnadc_data.py`. 
 
-Figura 1 - Visão geral da arquitetura
+Figura 1 - Visão geral da arquitetura do projeto
 
-![datalake_arch](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/datalake_arch_drawio.png?raw=true)
+![datalake_arch](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/datalake_arch.png?raw=true)
 
 # Etapas do ETL
 
