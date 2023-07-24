@@ -6,6 +6,10 @@ para a construção de um data warehouse para realização de consultas voltadas
 
 Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ibge_data.py` e `get_pnadc_data.py`. 
 
+Figura 1 - Visão geral da arquitetura
+
+![datalake_arch](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/datalake_arch_drawio.png?raw=true)
+
 # Etapas do ETL
 
 - Construção das tabelas 
@@ -15,6 +19,10 @@ Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ib
    - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_filtered_people_info_mulheres_adultas.sql) e são as tabelas para salvar os dados tratados e filtrados no redshift.
 
 - *get_ibge_data.py* 
+
+Figura 2 - DAG get_ibge_data
+
+![dag_get_ibge_data](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/airflow_dag_ibge_data.png?raw=true)
 
 1. `request_data`e `get_ibge_data`: Primeiro é feito o request da API do IBGE no endpoint `/localidades/distritos`, em seguida, `get_data` transforma a response em json para csv.
 2. `upload_to_s3`: Com os dados brutos em csv, eles são transferidos para o bucket `ibgebucket-data-pnadc` na pasta `ibge/raw`. Aqui é a _camada bronze_ dos dados onde temos os dados sem tratamento ainda. 
@@ -26,6 +34,9 @@ Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ib
 6. `transfer_s3_to_redshift_cities` e `transfer_s3_to_redshift_states`: Com os dados tratados e filtrados, podemos transferir essas informações para o data warehouse no redshift. Os dados de cidades são transferidos para a tabela `ibge_data_cities` e os de estados para a tabela `ibge_data_states`
 
 - *get_pnadc_data.py*
+
+Figura 3 - DAG get_pnadc_data
+![dag_get_pnadc_data](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/airflow_pnadc_data.png?raw=true)
 
 1. `get_mongodb_data`: Aqui realizamos a conexão com o MongoDB e recolhemos os dados armazenados.
 2. `upload_raw_data_to_s3`: Em seguida, os dados recolhidos pelo mongo são transferidos para o S3 no bucket `ibgebucket-data-pnadc` na pasta `pnadc_data_2023/raw`. (_camada bronze_)
