@@ -1,0 +1,36 @@
+[2023-06-27T21:58:49.382+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-27T17:56:53-04:00 [queued]>
+[2023-06-27T21:58:49.393+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-27T17:56:53-04:00 [queued]>
+[2023-06-27T21:58:49.393+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T21:58:49.393+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T21:58:49.393+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T21:58:49.436+0000] {taskinstance.py:1309} INFO - Executing <Task(S3ToRedshiftOperator): transfer_s3_to_redshift> on 2023-06-27 21:56:53+00:00
+[2023-06-27T21:58:49.443+0000] {standard_task_runner.py:55} INFO - Started process 31674 to run task
+[2023-06-27T21:58:49.447+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'transfer_s3_to_redshift', 'manual__2023-06-27T17:56:53-04:00', '--job-id', '157', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpo23248lz']
+[2023-06-27T21:58:49.448+0000] {standard_task_runner.py:83} INFO - Job 157: Subtask transfer_s3_to_redshift
+[2023-06-27T21:58:49.566+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-27T17:56:53-04:00 [running]> on host fef15d81d3ea
+[2023-06-27T21:58:49.953+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=transfer_s3_to_redshift
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T21:56:53+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T17:56:53-04:00
+[2023-06-27T21:58:49.965+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T21:58:49.971+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T21:58:49.972+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-27T21:58:49.982+0000] {s3_to_redshift.py:164} INFO - Executing COPY command...
+[2023-06-27T21:58:49.989+0000] {base.py:73} INFO - Using connection ID 'redshift_conn' for task execution.
+[2023-06-27T21:58:51.838+0000] {sql.py:375} INFO - Running statement: 
+                    COPY public.filtered_people_info_mulheres_adultas 
+                    FROM 's3://mytestbucket-talissa-us-east-1/testfiles/filter/processed_data_pnadc_2023_06_27.csv'
+                    credentials
+                    'aws_access_key_id=AKIARUML2T4G3H7J744G;aws_secret_access_key=***'
+                    DELIMITER ';'
+			IGNOREHEADER 1;
+        , parameters: None
+[2023-06-27T21:58:55.291+0000] {s3_to_redshift.py:166} INFO - COPY command complete...
+[2023-06-27T21:58:55.301+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=get_pnadc_data_new, task_id=transfer_s3_to_redshift, execution_date=20230627T215653, start_date=20230627T215849, end_date=20230627T215855
+[2023-06-27T21:58:55.444+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-06-27T21:58:55.460+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

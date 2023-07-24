@@ -1,0 +1,28 @@
+[2023-06-27T21:58:15.063+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T17:56:53-04:00 [queued]>
+[2023-06-27T21:58:15.073+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T17:56:53-04:00 [queued]>
+[2023-06-27T21:58:15.073+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T21:58:15.073+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T21:58:15.073+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T21:58:15.117+0000] {taskinstance.py:1309} INFO - Executing <Task(S3ToSqlOperator): transfer_s3_to_rds> on 2023-06-27 21:56:53+00:00
+[2023-06-27T21:58:15.125+0000] {standard_task_runner.py:55} INFO - Started process 31625 to run task
+[2023-06-27T21:58:15.128+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'transfer_s3_to_rds', 'manual__2023-06-27T17:56:53-04:00', '--job-id', '155', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpfuevzzz2']
+[2023-06-27T21:58:15.130+0000] {standard_task_runner.py:83} INFO - Job 155: Subtask transfer_s3_to_rds
+[2023-06-27T21:58:15.216+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T17:56:53-04:00 [running]> on host fef15d81d3ea
+[2023-06-27T21:58:15.600+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=transfer_s3_to_rds
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T21:56:53+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T17:56:53-04:00
+[2023-06-27T21:58:15.601+0000] {s3_to_sql.py:101} INFO - Loading testfiles/processed/processed_data_pnadc_2023_06_27.csv to SQL table people_info...
+[2023-06-27T21:58:15.616+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T21:58:15.616+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-27T21:58:17.336+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T21:58:17.706+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T21:58:40.368+0000] {sql.py:473} INFO - Done loading. Loaded a total of 100 rows into people_info
+[2023-06-27T21:58:40.378+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=get_pnadc_data_new, task_id=transfer_s3_to_rds, execution_date=20230627T215653, start_date=20230627T215815, end_date=20230627T215840
+[2023-06-27T21:58:40.441+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-06-27T21:58:40.468+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check

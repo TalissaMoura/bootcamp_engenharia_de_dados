@@ -1,0 +1,24 @@
+[2023-06-27T15:42:54.885+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-27T11:42:42-04:00 [queued]>
+[2023-06-27T15:42:54.895+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-27T11:42:42-04:00 [queued]>
+[2023-06-27T15:42:54.895+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T15:42:54.895+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T15:42:54.895+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T15:42:54.931+0000] {taskinstance.py:1309} INFO - Executing <Task(LocalFilesystemToS3Operator): upload_raw_data_to_s3> on 2023-06-27 15:42:42+00:00
+[2023-06-27T15:42:54.950+0000] {standard_task_runner.py:55} INFO - Started process 5242 to run task
+[2023-06-27T15:42:54.956+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'upload_raw_data_to_s3', 'manual__2023-06-27T11:42:42-04:00', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmp0iornb85']
+[2023-06-27T15:42:54.958+0000] {standard_task_runner.py:83} INFO - Job 61: Subtask upload_raw_data_to_s3
+[2023-06-27T15:42:55.090+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-27T11:42:42-04:00 [running]> on host fef15d81d3ea
+[2023-06-27T15:42:55.276+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=upload_raw_data_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T15:42:42+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T11:42:42-04:00
+[2023-06-27T15:42:55.299+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T15:42:55.299+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-27T15:42:59.860+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=get_pnadc_data_new, task_id=upload_raw_data_to_s3, execution_date=20230627T154242, start_date=20230627T154254, end_date=20230627T154259
+[2023-06-27T15:42:59.921+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-06-27T15:42:59.954+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check

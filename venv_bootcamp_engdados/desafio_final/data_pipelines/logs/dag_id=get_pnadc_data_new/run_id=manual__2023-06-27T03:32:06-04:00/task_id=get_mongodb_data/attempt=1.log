@@ -1,0 +1,25 @@
+[2023-06-27T07:32:17.157+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.get_mongodb_data manual__2023-06-27T03:32:06-04:00 [queued]>
+[2023-06-27T07:32:17.267+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.get_mongodb_data manual__2023-06-27T03:32:06-04:00 [queued]>
+[2023-06-27T07:32:17.267+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T07:32:17.268+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T07:32:17.268+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T07:32:17.328+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): get_mongodb_data> on 2023-06-27 07:32:06+00:00
+[2023-06-27T07:32:17.338+0000] {standard_task_runner.py:55} INFO - Started process 3374 to run task
+[2023-06-27T07:32:17.343+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'get_mongodb_data', 'manual__2023-06-27T03:32:06-04:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpjq_zweww']
+[2023-06-27T07:32:17.345+0000] {standard_task_runner.py:83} INFO - Job 7: Subtask get_mongodb_data
+[2023-06-27T07:32:17.457+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.get_mongodb_data manual__2023-06-27T03:32:06-04:00 [running]> on host 33a038a7552c
+[2023-06-27T07:32:17.652+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=get_mongodb_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T07:32:06+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T03:32:06-04:00
+[2023-06-27T07:32:17.666+0000] {base.py:73} INFO - Using connection ID 'mongodb_conn' for task execution.
+[2023-06-27T07:43:10.200+0000] {local_task_job.py:277} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2023-06-27T07:43:10.204+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 3374. PIDs of all processes in the group: [3374]
+[2023-06-27T07:43:10.205+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 3374
+[2023-06-27T07:43:10.205+0000] {taskinstance.py:1488} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-06-27T07:43:12.275+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=3374, status='terminated', exitcode=0, started='07:32:17') (3374) terminated with exit code 0

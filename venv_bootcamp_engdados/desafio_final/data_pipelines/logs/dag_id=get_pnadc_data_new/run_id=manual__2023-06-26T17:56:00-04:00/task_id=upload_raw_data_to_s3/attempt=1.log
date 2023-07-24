@@ -1,0 +1,54 @@
+[2023-06-26T21:56:43.244+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-26T17:56:00-04:00 [queued]>
+[2023-06-26T21:56:43.257+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-26T17:56:00-04:00 [queued]>
+[2023-06-26T21:56:43.257+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-26T21:56:43.257+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2023-06-26T21:56:43.258+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-26T21:56:43.297+0000] {taskinstance.py:1383} INFO - Executing <Task(LocalFilesystemToS3Operator): upload_raw_data_to_s3> on 2023-06-26 21:56:00+00:00
+[2023-06-26T21:56:43.304+0000] {standard_task_runner.py:55} INFO - Started process 2826 to run task
+[2023-06-26T21:56:43.307+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'upload_raw_data_to_s3', 'manual__2023-06-26T17:56:00-04:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmppdjo78my']
+[2023-06-26T21:56:43.309+0000] {standard_task_runner.py:83} INFO - Job 53: Subtask upload_raw_data_to_s3
+[2023-06-26T21:56:43.412+0000] {task_command.py:376} INFO - Running <TaskInstance: get_pnadc_data_new.upload_raw_data_to_s3 manual__2023-06-26T17:56:00-04:00 [running]> on host f5a823219759
+[2023-06-26T21:56:43.561+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=upload_raw_data_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-26T21:56:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-26T17:56:00-04:00
+[2023-06-26T21:56:43.575+0000] {base.py:71} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-26T21:56:43.575+0000] {connection_wrapper.py:303} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-26T21:56:46.736+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/transfers/local_to_s3.py", line 107, in execute
+    self.acl_policy,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 64, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 92, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 649, in load_file
+    client.upload_file(filename, bucket_name, key, ExtraArgs=extra_args, Config=self.transfer_config)
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/s3/inject.py", line 148, in upload_file
+    callback=Callback,
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/s3/transfer.py", line 288, in upload_file
+    future.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/tasks.py", line 269, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/upload.py", line 585, in _submit
+    upload_input_manager.provide_transfer_size(transfer_future)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/upload.py", line 244, in provide_transfer_size
+    self._osutil.get_file_size(transfer_future.meta.call_args.fileobj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/utils.py", line 247, in get_file_size
+    return os.path.getsize(filename)
+  File "/usr/local/lib/python3.7/genericpath.py", line 50, in getsize
+    return os.stat(filename).st_size
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pnadc_data_2023_06_26_21_56_41.json'
+[2023-06-26T21:56:46.819+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=get_pnadc_data_new, task_id=upload_raw_data_to_s3, execution_date=20230626T215600, start_date=20230626T215643, end_date=20230626T215646
+[2023-06-26T21:56:46.892+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 53 for task upload_raw_data_to_s3 ([Errno 2] No such file or directory: '/tmp/pnadc_data_2023_06_26_21_56_41.json'; 2826)
+[2023-06-26T21:56:46.943+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2023-06-26T21:56:47.010+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

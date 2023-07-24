@@ -1,0 +1,29 @@
+[2023-06-27T19:27:23.340+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.generate_filter_data manual__2023-06-27T15:26:19-04:00 [queued]>
+[2023-06-27T19:27:23.352+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.generate_filter_data manual__2023-06-27T15:26:19-04:00 [queued]>
+[2023-06-27T19:27:23.353+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T19:27:23.353+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T19:27:23.353+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T19:27:23.396+0000] {taskinstance.py:1309} INFO - Executing <Task(SqlToS3Operator): generate_filter_data> on 2023-06-27 19:26:19+00:00
+[2023-06-27T19:27:23.403+0000] {standard_task_runner.py:55} INFO - Started process 20461 to run task
+[2023-06-27T19:27:23.406+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'generate_filter_data', 'manual__2023-06-27T15:26:19-04:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpdrdbry0b']
+[2023-06-27T19:27:23.408+0000] {standard_task_runner.py:83} INFO - Job 99: Subtask generate_filter_data
+[2023-06-27T19:27:23.524+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.generate_filter_data manual__2023-06-27T15:26:19-04:00 [running]> on host fef15d81d3ea
+[2023-06-27T19:27:24.035+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=generate_filter_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T19:26:19+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T15:26:19-04:00
+[2023-06-27T19:27:24.066+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T19:27:24.623+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T19:27:26.805+0000] {sql_to_s3.py:168} INFO - Data from SQL obtained
+[2023-06-27T19:27:26.808+0000] {sql_to_s3.py:175} INFO - Writing data to temp file
+[2023-06-27T19:27:27.001+0000] {sql_to_s3.py:178} INFO - Uploading data to S3
+[2023-06-27T19:27:27.011+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T19:27:27.011+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-27T19:27:28.655+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=get_pnadc_data_new, task_id=generate_filter_data, execution_date=20230627T192619, start_date=20230627T192723, end_date=20230627T192728
+[2023-06-27T19:27:28.789+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-06-27T19:27:28.821+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,76 @@
+[2023-06-27T22:59:41.942+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T18:42:48-04:00 [queued]>
+[2023-06-27T22:59:41.965+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T18:42:48-04:00 [queued]>
+[2023-06-27T22:59:41.966+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T22:59:41.966+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-27T22:59:41.967+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T22:59:42.041+0000] {taskinstance.py:1309} INFO - Executing <Task(S3ToSqlOperator): transfer_s3_to_rds> on 2023-06-27 22:42:48+00:00
+[2023-06-27T22:59:42.059+0000] {standard_task_runner.py:55} INFO - Started process 1895 to run task
+[2023-06-27T22:59:42.070+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'transfer_s3_to_rds', 'manual__2023-06-27T18:42:48-04:00', '--job-id', '186', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpysczmgwt']
+[2023-06-27T22:59:42.075+0000] {standard_task_runner.py:83} INFO - Job 186: Subtask transfer_s3_to_rds
+[2023-06-27T22:59:42.294+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.transfer_s3_to_rds manual__2023-06-27T18:42:48-04:00 [running]> on host 8b415078c232
+[2023-06-27T22:59:42.930+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=transfer_s3_to_rds
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T22:42:48+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T18:42:48-04:00
+[2023-06-27T22:59:42.932+0000] {s3_to_sql.py:101} INFO - Loading pnadc_data_2023/processed/processed_data_pnadc_2023_06_27.csv to SQL table people_info...
+[2023-06-27T22:59:42.952+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-27T22:59:42.954+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-27T23:00:01.396+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T23:00:02.693+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-27T23:04:13.845+0000] {sql.py:470} INFO - Loaded 1000 rows into people_info so far
+[2023-06-27T23:08:22.141+0000] {sql.py:470} INFO - Loaded 2000 rows into people_info so far
+[2023-06-27T23:12:49.656+0000] {sql.py:470} INFO - Loaded 3000 rows into people_info so far
+[2023-06-27T23:17:04.326+0000] {sql.py:470} INFO - Loaded 4000 rows into people_info so far
+[2023-06-27T23:21:36.844+0000] {sql.py:470} INFO - Loaded 5000 rows into people_info so far
+[2023-06-27T23:25:52.916+0000] {sql.py:470} INFO - Loaded 6000 rows into people_info so far
+[2023-06-27T23:29:55.897+0000] {sql.py:470} INFO - Loaded 7000 rows into people_info so far
+[2023-06-27T23:34:04.232+0000] {sql.py:470} INFO - Loaded 8000 rows into people_info so far
+[2023-06-27T23:38:15.009+0000] {sql.py:470} INFO - Loaded 9000 rows into people_info so far
+[2023-06-27T23:42:34.799+0000] {sql.py:470} INFO - Loaded 10000 rows into people_info so far
+[2023-06-27T23:46:59.403+0000] {sql.py:470} INFO - Loaded 11000 rows into people_info so far
+[2023-06-27T23:51:22.268+0000] {sql.py:470} INFO - Loaded 12000 rows into people_info so far
+[2023-06-27T23:55:39.697+0000] {sql.py:470} INFO - Loaded 13000 rows into people_info so far
+[2023-06-27T23:59:49.476+0000] {sql.py:470} INFO - Loaded 14000 rows into people_info so far
+[2023-06-28T00:04:07.193+0000] {sql.py:470} INFO - Loaded 15000 rows into people_info so far
+[2023-06-28T00:08:34.354+0000] {sql.py:470} INFO - Loaded 16000 rows into people_info so far
+[2023-06-28T00:12:48.984+0000] {sql.py:470} INFO - Loaded 17000 rows into people_info so far
+[2023-06-28T00:16:55.603+0000] {sql.py:470} INFO - Loaded 18000 rows into people_info so far
+[2023-06-28T00:20:37.751+0000] {sql.py:470} INFO - Loaded 19000 rows into people_info so far
+[2023-06-28T00:23:31.994+0000] {sql.py:470} INFO - Loaded 20000 rows into people_info so far
+[2023-06-28T00:26:20.803+0000] {sql.py:470} INFO - Loaded 21000 rows into people_info so far
+[2023-06-28T00:29:06.726+0000] {sql.py:470} INFO - Loaded 22000 rows into people_info so far
+[2023-06-28T00:31:53.715+0000] {sql.py:470} INFO - Loaded 23000 rows into people_info so far
+[2023-06-28T00:34:39.254+0000] {sql.py:470} INFO - Loaded 24000 rows into people_info so far
+[2023-06-28T00:37:26.263+0000] {sql.py:470} INFO - Loaded 25000 rows into people_info so far
+[2023-06-28T00:40:12.724+0000] {sql.py:470} INFO - Loaded 26000 rows into people_info so far
+[2023-06-28T00:42:59.781+0000] {sql.py:470} INFO - Loaded 27000 rows into people_info so far
+[2023-06-28T00:45:45.967+0000] {sql.py:470} INFO - Loaded 28000 rows into people_info so far
+[2023-06-28T00:48:33.026+0000] {sql.py:470} INFO - Loaded 29000 rows into people_info so far
+[2023-06-28T00:51:18.923+0000] {sql.py:470} INFO - Loaded 30000 rows into people_info so far
+[2023-06-28T00:54:05.597+0000] {sql.py:470} INFO - Loaded 31000 rows into people_info so far
+[2023-06-28T00:56:52.602+0000] {sql.py:470} INFO - Loaded 32000 rows into people_info so far
+[2023-06-28T00:59:38.784+0000] {sql.py:470} INFO - Loaded 33000 rows into people_info so far
+[2023-06-28T01:02:25.453+0000] {sql.py:470} INFO - Loaded 34000 rows into people_info so far
+[2023-06-28T01:05:12.125+0000] {sql.py:470} INFO - Loaded 35000 rows into people_info so far
+[2023-06-28T01:07:58.572+0000] {sql.py:470} INFO - Loaded 36000 rows into people_info so far
+[2023-06-28T01:10:44.384+0000] {sql.py:470} INFO - Loaded 37000 rows into people_info so far
+[2023-06-28T01:13:31.080+0000] {sql.py:470} INFO - Loaded 38000 rows into people_info so far
+[2023-06-28T01:16:17.487+0000] {sql.py:470} INFO - Loaded 39000 rows into people_info so far
+[2023-06-28T01:19:04.963+0000] {sql.py:470} INFO - Loaded 40000 rows into people_info so far
+[2023-06-28T01:21:50.739+0000] {sql.py:470} INFO - Loaded 41000 rows into people_info so far
+[2023-06-28T01:24:38.792+0000] {sql.py:470} INFO - Loaded 42000 rows into people_info so far
+[2023-06-28T01:27:26.433+0000] {sql.py:470} INFO - Loaded 43000 rows into people_info so far
+[2023-06-28T01:30:13.085+0000] {sql.py:470} INFO - Loaded 44000 rows into people_info so far
+[2023-06-28T01:33:00.553+0000] {sql.py:470} INFO - Loaded 45000 rows into people_info so far
+[2023-06-28T01:35:48.435+0000] {sql.py:470} INFO - Loaded 46000 rows into people_info so far
+[2023-06-28T01:39:10.266+0000] {sql.py:470} INFO - Loaded 47000 rows into people_info so far
+[2023-06-28T01:41:26.002+0000] {local_task_job.py:277} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2023-06-28T01:41:26.005+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 1895. PIDs of all processes in the group: [1895]
+[2023-06-28T01:41:26.005+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 1895
+[2023-06-28T01:41:26.071+0000] {taskinstance.py:1488} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-06-28T01:41:27.645+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1895, status='terminated', exitcode=0, started='22:59:41') (1895) terminated with exit code 0

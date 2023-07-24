@@ -1,0 +1,48 @@
+[2023-06-29T01:15:45.457+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [queued]>
+[2023-06-29T01:15:45.483+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [queued]>
+[2023-06-29T01:15:45.483+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-29T01:15:45.483+0000] {taskinstance.py:1289} INFO - Starting attempt 2 of 2
+[2023-06-29T01:15:45.484+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-29T01:15:45.636+0000] {taskinstance.py:1309} INFO - Executing <Task(S3ToRedshiftOperator): transfer_s3_to_redshift> on 2023-06-28 21:12:42+00:00
+[2023-06-29T01:15:45.646+0000] {standard_task_runner.py:55} INFO - Started process 19460 to run task
+[2023-06-29T01:15:45.652+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'transfer_s3_to_redshift', 'manual__2023-06-28T17:12:42-04:00', '--job-id', '331', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmp7g62t15r']
+[2023-06-29T01:15:45.655+0000] {standard_task_runner.py:83} INFO - Job 331: Subtask transfer_s3_to_redshift
+[2023-06-29T01:15:45.878+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [running]> on host d9b032dfc97f
+[2023-06-29T01:15:47.343+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=transfer_s3_to_redshift
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T21:12:42+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-28T17:12:42-04:00
+[2023-06-29T01:15:47.477+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-29T01:15:47.497+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-29T01:15:47.497+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-29T01:15:47.728+0000] {s3_to_redshift.py:164} INFO - Executing COPY command...
+[2023-06-29T01:15:47.738+0000] {base.py:73} INFO - Using connection ID 'redshift_conn' for task execution.
+[2023-06-29T01:17:48.051+0000] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/core.py", line 611, in __init__
+    resp: bytes = self._usock.recv(1)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/transfers/s3_to_redshift.py", line 165, in execute
+    redshift_hook.run(sql, autocommit=self.autocommit)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/redshift_sql.py", line 129, in get_conn
+    return redshift_connector.connect(**conn_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/__init__.py", line 360, in connect
+    numeric_to_float=info.numeric_to_float,
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/core.py", line 632, in __init__
+    raise InterfaceError("communication error", e)
+redshift_connector.error.InterfaceError: ('communication error', ConnectionResetError(104, 'Connection reset by peer'))
+[2023-06-29T01:17:48.488+0000] {taskinstance.py:1332} INFO - Marking task as FAILED. dag_id=get_pnadc_data_new, task_id=transfer_s3_to_redshift, execution_date=20230628T211242, start_date=20230629T011545, end_date=20230629T011748
+[2023-06-29T01:17:49.067+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 331 for task transfer_s3_to_redshift (('communication error', ConnectionResetError(104, 'Connection reset by peer')); 19460)
+[2023-06-29T01:17:49.129+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-06-29T01:17:49.172+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

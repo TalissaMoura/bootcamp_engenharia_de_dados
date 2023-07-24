@@ -1,0 +1,52 @@
+[2023-06-28T21:13:39.007+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [queued]>
+[2023-06-28T21:13:39.019+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [queued]>
+[2023-06-28T21:13:39.019+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T21:13:39.019+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-28T21:13:39.019+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T21:13:39.062+0000] {taskinstance.py:1309} INFO - Executing <Task(S3ToRedshiftOperator): transfer_s3_to_redshift> on 2023-06-28 21:12:42+00:00
+[2023-06-28T21:13:39.069+0000] {standard_task_runner.py:55} INFO - Started process 1384 to run task
+[2023-06-28T21:13:39.072+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_pnadc_data_new', 'transfer_s3_to_redshift', 'manual__2023-06-28T17:12:42-04:00', '--job-id', '274', '--raw', '--subdir', 'DAGS_FOLDER/get_pnadc_data_new.py', '--cfg-path', '/tmp/tmpcrjcdzvn']
+[2023-06-28T21:13:39.074+0000] {standard_task_runner.py:83} INFO - Job 274: Subtask transfer_s3_to_redshift
+[2023-06-28T21:13:39.174+0000] {task_command.py:389} INFO - Running <TaskInstance: get_pnadc_data_new.transfer_s3_to_redshift manual__2023-06-28T17:12:42-04:00 [running]> on host d9b032dfc97f
+[2023-06-28T21:13:39.507+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_pnadc_data_new
+AIRFLOW_CTX_TASK_ID=transfer_s3_to_redshift
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T21:12:42+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-28T17:12:42-04:00
+[2023-06-28T21:13:39.522+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-28T21:13:39.533+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-28T21:13:39.534+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-28T21:13:39.545+0000] {s3_to_redshift.py:164} INFO - Executing COPY command...
+[2023-06-28T21:13:39.551+0000] {base.py:73} INFO - Using connection ID 'redshift_conn' for task execution.
+[2023-06-28T21:13:41.691+0000] {sql.py:375} INFO - Running statement: 
+                    COPY public.filtered_people_info_mulheres_adultas 
+                    FROM 's3://ibgebucket-data-pnadc/pnadc_data_2023/filter/filter_processed_data_pnadc_2023_06_28.csv'
+                    credentials
+                    'aws_access_key_id=AKIARUML2T4G3H7J744G;aws_secret_access_key=***'
+                    DELIMITER ','
+			NULL AS ''
+			IGNOREHEADER 1;
+        , parameters: None
+[2023-06-28T21:13:42.533+0000] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/transfers/s3_to_redshift.py", line 165, in execute
+    redshift_hook.run(sql, autocommit=self.autocommit)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/cursor.py", line 240, in execute
+    self._c.execute(self, operation, args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/core.py", line 1783, in execute
+    self.handle_messages(cursor)
+  File "/home/airflow/.local/lib/python3.7/site-packages/redshift_connector/core.py", line 1969, in handle_messages
+    raise self.error
+redshift_connector.error.ProgrammingError: {'S': 'ERROR', 'C': 'XX000', 'M': "The specified S3 prefix 'pnadc_data_2023/filter/filter_processed_data_pnadc_2023_06_28.csv' does not exist", 'D': "\n  -----------------------------------------------\n  error:  The specified S3 prefix 'pnadc_data_2023/filter/filter_processed_data_pnadc_2023_06_28.csv' does not exist\n  code:      8001\n  context:   \n  query:     802766\n  location:  s3_utility.cpp:699\n  process:   padbmaster [pid=1073963147]\n  -----------------------------------------------\n", 'F': '/home/ec2-user/padb/src/sys/xen_execute.cpp', 'L': '11266', 'R': 'pg_throw'}
+[2023-06-28T21:13:42.541+0000] {taskinstance.py:1332} INFO - Marking task as FAILED. dag_id=get_pnadc_data_new, task_id=transfer_s3_to_redshift, execution_date=20230628T211242, start_date=20230628T211339, end_date=20230628T211342
+[2023-06-28T21:13:42.583+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 274 for task transfer_s3_to_redshift ({'S': 'ERROR', 'C': 'XX000', 'M': "The specified S3 prefix 'pnadc_data_2023/filter/filter_processed_data_pnadc_2023_06_28.csv' does not exist", 'D': "\n  -----------------------------------------------\n  error:  The specified S3 prefix 'pnadc_data_2023/filter/filter_processed_data_pnadc_2023_06_28.csv' does not exist\n  code:      8001\n  context:   \n  query:     802766\n  location:  s3_utility.cpp:699\n  process:   padbmaster [pid=1073963147]\n  -----------------------------------------------\n", 'F': '/home/ec2-user/padb/src/sys/xen_execute.cpp', 'L': '11266', 'R': 'pg_throw'}; 1384)
+[2023-06-28T21:13:42.633+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-06-28T21:13:42.653+0000] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

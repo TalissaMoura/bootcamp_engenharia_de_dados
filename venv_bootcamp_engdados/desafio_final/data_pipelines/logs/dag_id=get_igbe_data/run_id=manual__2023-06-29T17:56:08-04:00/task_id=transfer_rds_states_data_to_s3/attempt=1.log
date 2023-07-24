@@ -1,0 +1,26 @@
+[2023-06-29T21:57:53.991+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: get_igbe_data.transfer_rds_states_data_to_s3 manual__2023-06-29T17:56:08-04:00 [queued]>
+[2023-06-29T21:57:54.007+0000] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: get_igbe_data.transfer_rds_states_data_to_s3 manual__2023-06-29T17:56:08-04:00 [queued]>
+[2023-06-29T21:57:54.007+0000] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-29T21:57:54.007+0000] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-06-29T21:57:54.007+0000] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-29T21:57:54.123+0000] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): transfer_rds_states_data_to_s3> on 2023-06-29 21:56:08+00:00
+[2023-06-29T21:57:54.146+0000] {standard_task_runner.py:55} INFO - Started process 10428 to run task
+[2023-06-29T21:57:54.160+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'get_igbe_data', 'transfer_rds_states_data_to_s3', 'manual__2023-06-29T17:56:08-04:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/get_ibge_data.py', '--cfg-path', '/tmp/tmpf95aw19j']
+[2023-06-29T21:57:54.165+0000] {standard_task_runner.py:83} INFO - Job 84: Subtask transfer_rds_states_data_to_s3
+[2023-06-29T21:57:54.403+0000] {task_command.py:389} INFO - Running <TaskInstance: get_igbe_data.transfer_rds_states_data_to_s3 manual__2023-06-29T17:56:08-04:00 [running]> on host b4b1b6c8b5f0
+[2023-06-29T21:57:54.946+0000] {taskinstance.py:1518} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=get_igbe_data
+AIRFLOW_CTX_TASK_ID=transfer_rds_states_data_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-29T21:56:08+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-29T17:56:08-04:00
+[2023-06-29T21:57:54.964+0000] {base.py:73} INFO - Using connection ID 'aws_conn' for task execution.
+[2023-06-29T21:57:54.965+0000] {connection_wrapper.py:337} INFO - AWS Connection (conn_id='aws_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-06-29T21:57:55.938+0000] {base.py:73} INFO - Using connection ID 'postgres_conn' for task execution.
+[2023-06-29T21:58:11.479+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-06-29T21:58:11.503+0000] {taskinstance.py:1332} INFO - Marking task as SUCCESS. dag_id=get_igbe_data, task_id=transfer_rds_states_data_to_s3, execution_date=20230629T215608, start_date=20230629T215753, end_date=20230629T215811
+[2023-06-29T21:58:11.633+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-06-29T21:58:11.666+0000] {taskinstance.py:2596} INFO - 1 downstream tasks scheduled from follow-on schedule check
