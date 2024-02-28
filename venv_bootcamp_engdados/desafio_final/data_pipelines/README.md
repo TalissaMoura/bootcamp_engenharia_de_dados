@@ -1,8 +1,7 @@
-# ETL para extração de dados 
+# Data lake com dados educaionais e geolocalizados
 
 
-O projeto final do curso envolve construir um data lake com dados educacionais armazenados em um banco MongoDB e na API do IBGE. Em seguida, o dado tratado e filtrado deve ser utilizado
-para a construção de um data warehouse para realização de consultas voltadas a problema de negócios.
+O projeto final do curso envolve construir um data lake com dados educacionais armazenados em um banco MongoDB e na API do IBGE. Em seguida, o dado tratado e filtrado deve ser utilizado para a construção de um data lake baseado na arquitetura medalhão para realização de consultas voltadas a problema de negócios. 
 
 Para melhor dividir as etapas foi realizada a construção de duas DAGs: `get_ibge_data.py` e `get_pnadc_data.py`. 
 
