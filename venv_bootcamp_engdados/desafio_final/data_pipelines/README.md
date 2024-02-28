@@ -9,11 +9,11 @@ Figura 1 - Visão geral da arquitetura do projeto
 
 ![datalake_arch](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/images/datalake_arch.png?raw=true)
 
-# Etapas do ETL
+# Etapas do pipeline
 
 - Construção das tabelas 
 
-  Para esse ETL estão utilizando dois banco de dados: RDS postgres e redshift. Dessa forma, antes de iniciar as dags é preciso criar as tabelas para receber os dados nesses dois banco de dados. 
+  Para esse pipeline é utilizado dois banco de dados: RDS postgres e redshift. Dessa forma, antes de iniciar as dags é preciso criar as tabelas para receber os dados nesses dois banco de dados. 
    - Tabelas `ibge_data` e `people_info`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_people_info.sql) e são as tabelas utilizadas para salvar os dados tratados na instância RDS. 
    - Tabelas `filtered_people_info_mulheres_adultas`,`ibge_data_cities`,`ibge_data_states`: Estão nesse [script](https://github.com/TalissaMoura/bootcamp_engenharia_de_dados/blob/main/venv_bootcamp_engdados/desafio_final/data_pipelines/querys/scripts_filtered_people_info_mulheres_adultas.sql) e são as tabelas para salvar os dados tratados e filtrados no redshift.
 
